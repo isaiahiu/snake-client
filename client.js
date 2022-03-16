@@ -12,14 +12,13 @@ const connect = function () {
   conn.on("connect", (connect) => {
     console.log("Successfully connected to server");
     conn.write("Name: Zae");
-    setInterval(() => {
-      conn.write("Move: up");
-    }, 50);
   });
+  setInterval(() => {
+    conn.write("Say: Where r Apples");
+  }, 50);
   conn.on("data", (data) => {
     console.log(data);
   });
-
   return conn;
 };
 
