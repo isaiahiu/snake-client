@@ -9,6 +9,13 @@ const connect = function () {
 
   // interpret incoming data as text
   conn.setEncoding("utf8");
+  conn.on("connect", (connect) => {
+    console.log("Successfully connected to server");
+    conn.write("Name: Zae");
+    setInterval(() => {
+      conn.write("Move: up");
+    }, 50);
+  });
   conn.on("data", (data) => {
     console.log(data);
   });
@@ -19,4 +26,4 @@ const connect = function () {
 // console.log("Connecting ...");
 // connect();
 
-module.exports = connect;
+module.exports = { connect };
